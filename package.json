@@ -1,6 +1,6 @@
 {
   "name": "pattern-generator-lib",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Provides a generator, that can generate random Strings from a pattern.",
   "main": "index.js",
   "scripts": {
@@ -8,6 +8,6 @@
   },
   "keywords": ["random", "generator"],
   "author": "Kevin Fehlemann",
-  "homepage": "https://github.com/Sadragos/pattern-generator-lib",
+  "homepage": "https://github.com/KevFeh/pattern-generator-lib",
   "license": "ISC"
 }

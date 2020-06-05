@@ -1,7 +1,7 @@
 const Lists = require('./lists');
 
 class Generator {
-    smartList = {
+    lists = {
         '0': Lists.numbers,
         'V': Lists.vovelsUpper,
         'v': Lists.vovelsLower,
@@ -34,6 +34,8 @@ class Generator {
      * <li>f - Random Color</li>
      * <li>g - Random Greek Letter</li>
      *
+     * You can add more replacements with the addPatternList method
+     *
      * To escape a Portion of the pattern to not pe replaced you can wrap it with /
      * @param pattern
      * @returns {*}
@@ -47,9 +49,9 @@ class Generator {
                 result += groups[i];
             } else {
                 for (let c = 0; c < groups[i].length; c++) {
-                    for (const key of Object.keys(this.smartList)) {
+                    for (const key of Object.keys(this.lists)) {
                         if (key !== groups[i][c]) continue;
-                        result += this.randomSelection(this.smartList[key]);
+                        result += this.randomSelection(this.lists[key]);
                         break;
                     }
                 }
@@ -59,6 +61,12 @@ class Generator {
         return result;
     }
 
+    /**
+     * Calculates the number of possible outcomes for the given pattern.
+     * @see pattern
+     * @param pattern
+     * @returns {*}
+     */
     patternComplexity(pattern) {
         const groups = pattern.split('/');
         let result = 1;
@@ -66,9 +74,9 @@ class Generator {
         for (let i = 0; i < groups.length; i++) {
             if (i % 2 !== 1) {
                 for (let c = 0; c < groups[i].length; c++) {
-                    for (const key of Object.keys(this.smartList)) {
+                    for (const key of Object.keys(this.lists)) {
                         if (key !== groups[i][c]) continue;
-                        result *= this.smartList[key].length;
+                        result *= this.lists[key].length;
                         break;
                     }
                 }
@@ -82,7 +90,7 @@ class Generator {
     }
 
     addPatternList(identifier, list) {
-        this.smartList[identifier] = list;
+        this.lists[identifier] = list;
     }
 }
 
