@@ -1,7 +1,7 @@
 This tiny library allows you to create random Strings, that match a given pattern.
 
 # Installation
-<code>npm i pattern-generator-lib</code>
+<code>npm i pattern-string-generator</code>
 
 # Usage
 The generator uses a set of lists, which can be combined to create a wide range of strings.
