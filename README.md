@@ -1,9 +1,9 @@
 This tiny library allows you to create random Strings, that match a given pattern.
 
-#Installation
+# Installation
 <code>npm i pattern-generator-lib</code>
 
-#Usage
+# Usage
 The generator uses a set of lists, which can be combined to create a wide range of strings.
 <pre><code>const Generator = require('pattern-generator-lib');
 const generator = new Generator();
@@ -14,7 +14,7 @@ console.log(generator.pattern(pattern)) // F-SIMEKU-BUVAXE-MELEBU-447
 
 In the example above uppercase vovels are mixed with uppercase consonants and some numbers. You can also exclude parts of the pattern from being replaced by surrounding it with <code>/</code> as shown above. 
 
-#Pre-build Lists
+# Pre-build Lists
 * **0** => Single digit number <code>[0-9]</code>
 * **V** => Uppercase vovel <code>[AEIOU]</code>
 * **v** => Lowercase vovel <code>[aeiou]</code>
@@ -29,12 +29,12 @@ In the example above uppercase vovels are mixed with uppercase consonants and so
 * **f** => Random color name
 * **g** => Random greek letter name
 
-#Adding your own List
+# Adding your own List
 You can add your own List for replacement to the generator. It can either be a string or an array.
 
 <code>generator.addPatternList('k', ['po', 'ro', 'do'])</code>
 
 If you call the pattern method after this line every k in the pattern willbe replaced with either po, ro or do.
 
-#Pattern Complexity
+# Pattern Complexity
 If you want to check, how many possible results your pattern can have you can use the patternComplexity method.
