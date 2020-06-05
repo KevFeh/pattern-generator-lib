@@ -49,10 +49,8 @@ class Generator {
                 result += groups[i];
             } else {
                 for (let c = 0; c < groups[i].length; c++) {
-                    for (const key of Object.keys(this.lists)) {
-                        if (key !== groups[i][c]) continue;
-                        result += this.randomSelection(this.lists[key]);
-                        break;
+                    if(this.lists.hasOwnProperty(groups[i][c])) {
+                        result += this.randomSelection(this.lists[groups[i][c]]);
                     }
                 }
             }
@@ -74,10 +72,8 @@ class Generator {
         for (let i = 0; i < groups.length; i++) {
             if (i % 2 !== 1) {
                 for (let c = 0; c < groups[i].length; c++) {
-                    for (const key of Object.keys(this.lists)) {
-                        if (key !== groups[i][c]) continue;
-                        result *= this.lists[key].length;
-                        break;
+                    if(this.lists.hasOwnProperty(groups[i][c])) {
+                        result *= this.lists[groups[i][c]].length;
                     }
                 }
             }
